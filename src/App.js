@@ -42,43 +42,67 @@ const alfabeto = [
 ];
 
 export default function App() {
-  const [classeLetra, setClasseLetra] = useState("letra desabilitado");
-  const [erros, setErros] = useState(0);
+  const [erros, setErros] = useState(1);
   const [imagem, setImagem] = useState(estagios[0]);
+  const [escolhidas, setEscolhidas] = useState(alfabeto);
+  let [arrayPalavra, setArrayPalavra] = useState([]);
 
   function start() {
     console.log("apertado");
-    setClasseLetra("letra habilitado");
+    setEscolhidas([]);
+    let escolhida = Math.floor(Math.random() * palavras.length);
+    let palavra = palavras[escolhida];
+    console.log(palavra);
+    palavra = palavra.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    setArrayPalavra([...palavra]);
+    console.log(palavra);
+    console.log(arrayPalavra);
   }
 
   function apertou(letra) {
     console.log(letra);
+    let adicionaEscolhidas = [...escolhidas, letra];
+    setEscolhidas(adicionaEscolhidas);
+    let i = 0;
+    let acertou = 0;
+    while(i < arrayPalavra.length){
+      if(letra === arrayPalavra[i]){
+        console.log("acertou")
+        acertou++
+      }
+      i++
+    }
+    if (acertou <= 0){
+      erro();
+    }
   }
 
-  function erro(){
+  function erro() {
     setErros(erros + 1);
     setImagem(estagios[erros]);
   }
 
-  function rodaduas(funcao1, funcao2){
-    funcao1();
-    funcao2();
-
-  }
 
   return (
     <>
       <div className="ForcaBotao">
         <img className="forca" src={imagem} alt="Nao carregou" />
-        <button onClick={() => rodaduas(start, erro)} className="start-restart">
+        <button onClick={start} className="start-restart">
           Escolher Palavra
         </button>
+        <ul className="resposta">
+          {arrayPalavra.map((l, index) => (
+            <li key={index} className="caractere">
+              _
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="teclado">
         {alfabeto.map((letra, index) => (
           <div
             key={index}
-            className={classeLetra}
+            className={escolhidas.includes(letra) ? "desabilitado" : "habilitado"}
             onClick={() => apertou(letra)}
           >
             {letra}

@@ -9,12 +9,14 @@
     position: relative;
     width: 100%;
     margin-top: 25px;
+    background-color: blue;
 }
 
 .forca{
     margin-left: 20px;
     width: 500px;
     height: 450px;
+    background-color: green;
 }
 
 .start-restart{
@@ -31,6 +33,20 @@
     right: 20px;
 }
 
+.resposta{
+    display: flex;
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+
+}
+
+.caractere{
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 40px;
+}
+
 .teclado{
     display: flex;
     flex-wrap: wrap;
@@ -38,7 +54,7 @@
     margin-top: 35px;
 }
 
-.letra{
+.habilitado{
     width: 50px;
     height: 50px;
     margin-left: 5px;
@@ -47,21 +63,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e1ecf4;
     border-radius: 5px;
-    border: 1px solid #80abc9;
-    color: #39739d
-}
-
-.habilitado{
     background-color: #e1ecf4;
     border: 1px solid #80abc9;
     color: #39739d
 }
 
 .desabilitado{
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
     background-color: #9faab5;
     border: 1px solid #9faab5;
     color: #80848a;
+    pointer-events: none;
 }
 
