@@ -1,87 +1,136 @@
-.root{
-    width: 850px;
-    margin: auto;
-
+.root {
+  width: 850px;
+  margin: auto;
 }
 
-.ForcaBotao{
-    display: flex;
-    position: relative;
-    width: 100%;
-    margin-top: 25px;
-    background-color: blue;
+.ForcaBotao {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
+  background-color: blue;
 }
 
-.forca{
-    margin-left: 20px;
-    width: 500px;
-    height: 450px;
-    background-color: green;
+.forca {
+  margin-left: 20px;
+  width: 470px;
+  height: 450px;
+  background-color: green;
 }
 
-.start-restart{
-    background-color: #27ae60;
-    border: 1px solid #27ae60;
-    color: white;
-    width: 165px;
-    height: 55px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    position: absolute;
-    top: 35px; 
-    right: 20px;
+.start-restart {
+  background-color: #27ae60;
+  border: 1px solid #27ae60;
+  color: white;
+  width: 165px;
+  height: 55px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  top: 35px;
+  right: 20px;
 }
 
-.resposta{
-    display: flex;
-    position: absolute;
-    right: 60px;
-    bottom: 10px;
-
+.resposta {
+  display: flex;
+  position: absolute;
+  right: 50px;
+  bottom: 10px;
 }
 
-.caractere{
-    margin-left: 2px;
-    margin-right: 2px;
-    font-size: 40px;
+.caractere {
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 35px;
 }
 
-.teclado{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 20px;
-    margin-top: 35px;
+.acertou {
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 40px;
+  color: green;
 }
 
-.habilitado{
-    width: 50px;
-    height: 50px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background-color: #e1ecf4;
-    border: 1px solid #80abc9;
-    color: #39739d
+.errou {
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 40px;
+  color: red;
 }
 
-.desabilitado{
-    width: 50px;
-    height: 50px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background-color: #9faab5;
-    border: 1px solid #9faab5;
-    color: #80848a;
+.teclado {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+.habilitado {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #e1ecf4;
+  border: 1px solid #80abc9;
+  color: #39739d;
+}
+
+.desabilitado {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #9faab5;
+  border: 1px solid #9faab5;
+  color: #80848a;
+  pointer-events: none;
+}
+
+.input {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.input p {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.input input {
+  width: 300px;
+  height: 30px;
+}
+
+.input button {
+  margin-left: 5px;
+  width: 60px;
+}
+
+.off {
+  background-color: #9faab5;
+  border: 1px solid #9faab5;
+  color: #80848a;
+  pointer-events: none;
+}
+
+.on {
+  background-color: #e1ecf4;
+  border: 1px solid #80abc9;
+  color: #39739d;
+}
+
+.down{
     pointer-events: none;
 }
-
