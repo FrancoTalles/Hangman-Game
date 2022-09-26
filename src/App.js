@@ -69,18 +69,13 @@ export default function App() {
     palavra = palavra.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     let palavraSeparadaSemAcento = [...palavra];
     setArrayPalavra(palavraSeparadaSemAcento);
-    console.log(palavra);
-    console.log(palavraSeparadaComAcento);
-    console.log(palavraSeparadaSemAcento);
     for (let i = 0; i < palavra.length; i++) {
       auxTracos.push("_");
-      console.log(auxTracos);
       setTracos(auxTracos);
     }
   }
 
   function apertou(letra) {
-    console.log(letra);
     let adicionaEscolhidas = [...escolhidas, letra];
     setEscolhidas(adicionaEscolhidas);
     let i = 0;
@@ -88,11 +83,8 @@ export default function App() {
     let auxTracos = [...tracos];
     while (i < arrayPalavra.length) {
       if (letra === arrayPalavra[i]) {
-        console.log("acertou");
         acertou++;
-        console.log(auxTracos);
         auxTracos[i] = arrayPalavraComAcento[i];
-        console.log(auxTracos);
       }
       i++;
     }
@@ -113,14 +105,6 @@ export default function App() {
   }
 
   function final() {
-    console.log(imagem);
-    console.log(estagios[erros]);
-    console.log(img6);
-    console.log(tracos);
-    console.log(arrayPalavraComAcento.join(""));
-    console.log(tracos.join(""));
-    console.log(auxpalavra);
-
     if (estagios[erros] === img6) {
       setCaractereClass("errou");
       setEscolhidas(alfabeto);
@@ -153,11 +137,11 @@ export default function App() {
   return (
     <>
       <div className="ForcaBotao">
-        <img className="forca" src={imagem} alt="Nao carregou" />
-        <button onClick={start} className="start-restart">
+        <img data-identifier="game-image" className="forca" src={imagem} alt="Nao carregou" />
+        <button data-identifier="choose-word" onClick={start} className="start-restart">
           Escolher Palavra
         </button>
-        <ul className="resposta">
+        <ul data-identifier="word" className="resposta">
           {tracos.map((l, index) => (
             <li key={index} className={caractereClass}>
               {l}
@@ -173,6 +157,7 @@ export default function App() {
               escolhidas.includes(letra) ? "desabilitado" : "habilitado"
             }
             onClick={() => apertou(letra)}
+            data-identifier="letter"
           >
             {letra}
           </div>
@@ -182,6 +167,7 @@ export default function App() {
         <p>Já sei a palavra!</p>
         <input
           value={palavraInput}
+          data-identifier="type-guess"
           onChange={(event) =>
             setPalavraInput(
               event.target.value
@@ -192,7 +178,7 @@ export default function App() {
           className={interruptor}
           placeholder="Qual é seu chute?"
         ></input>
-        <button onClick={finalInput} className={ButtonClass}>
+        <button data-identifier="guess-button" onClick={finalInput} className={ButtonClass}>
           Chutar
         </button>
       </div>
